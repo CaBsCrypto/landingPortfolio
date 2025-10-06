@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Portafolio - Creador de Contenido</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Tu Nombre</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Inicio</a>
+                <a href="#services" class="nav-link">Servicios</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hola, soy <span class="highlight">Tu Nombre</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Creador de Contenido Digital | Especialista en Marketing | Diseñador Visual
+                    </p>
+                    <p class="hero-description">
+                        Transformo ideas en contenido visual impactante que conecta con tu audiencia. 
+                        Especializado en fotografía, videografía, diseño gráfico y estrategias de marketing digital.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">Ver Mi Trabajo</a>
+                        <a href="#contact" class="btn btn-secondary">Trabajemos Juntos</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="https://via.placeholder.com/400x500/6366f1/ffffff?text=Tu+Foto" alt="Tu Foto" class="profile-img">
+                        <div class="floating-elements">
+                            <div class="floating-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mis Servicios</h2>
+                <p class="section-subtitle">Soluciones creativas para tu marca</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Fotografía</h3>
+                    <p>Fotografía profesional para productos, eventos, retratos y contenido para redes sociales.</p>
+                    <ul class="service-features">
+                        <li>Fotografía de producto</li>
+                        <li>Retratos profesionales</li>
+                        <li>Eventos corporativos</li>
+                        <li>Contenido para Instagram</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videografía</h3>
+                    <p>Producción de videos promocionales, comerciales y contenido para redes sociales.</p>
+                    <ul class="service-features">
+                        <li>Videos promocionales</li>
+                        <li>Comerciales</li>
+                        <li>Reels para Instagram</li>
+                        <li>Edición profesional</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Diseño Gráfico</h3>
+                    <p>Identidad visual, branding y diseño de materiales promocionales para tu marca.</p>
+                    <ul class="service-features">
+                        <li>Identidad de marca</li>
+                        <li>Logos y branding</li>
+                        <li>Materiales promocionales</li>
+                        <li>Diseño web</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing Digital</h3>
+                    <p>Estrategias de marketing digital y gestión de redes sociales para hacer crecer tu marca.</p>
+                    <ul class="service-features">
+                        <li>Estrategia de contenido</li>
+                        <li>Gestión de redes sociales</li>
+                        <li>Marketing de influencers</li>
+                        <li>Análisis y métricas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mi Portfolio</h2>
+                <p class="section-subtitle">Algunos de mis trabajos más destacados</p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="fotografia">Fotografía</button>
+                <button class="filter-btn" data-filter="video">Video</button>
+                <button class="filter-btn" data-filter="diseno">Diseño</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="fotografia">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Foto+1" alt="Proyecto 1">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Fotografía de Producto</h3>
+                                <p>Cliente: Marca XYZ</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="video">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/06b6d4/ffffff?text=Video+1" alt="Proyecto 2">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Video Promocional</h3>
+                                <p>Cliente: Empresa ABC</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="diseno">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/10b981/ffffff?text=Diseño+1" alt="Proyecto 3">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Identidad de Marca</h3>
+                                <p>Cliente: Startup DEF</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="fotografia">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/f59e0b/ffffff?text=Foto+2" alt="Proyecto 4">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Retrato Corporativo</h3>
+                                <p>Cliente: CEO GHI</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="video">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/ef4444/ffffff?text=Video+2" alt="Proyecto 5">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Reel Instagram</h3>
+                                <p>Cliente: Influencer JKL</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="diseno">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Diseño+2" alt="Proyecto 6">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Diseño Web</h3>
+                                <p>Cliente: Agencia MNO</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section id="contact" class="social-links">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Conectemos</h2>
+                <p class="section-subtitle">Sígueme en mis redes sociales</p>
+            </div>
+            <div class="social-grid">
+                <a href="#" class="social-card instagram">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>Instagram</h3>
+                        <p>@tuusuario</p>
+                        <span class="social-followers">10K seguidores</span>
+                    </div>
+                </a>
+                <a href="#" class="social-card youtube">
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>YouTube</h3>
+                        <p>Tu Canal</p>
+                        <span class="social-followers">5K suscriptores</span>
+                    </div>
+                </a>
+                <a href="#" class="social-card tiktok">
+                    <div class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>TikTok</h3>
+                        <p>@tuusuario</p>
+                        <span class="social-followers">25K seguidores</span>
+                    </div>
+                </a>
+                <a href="#" class="social-card behance">
+                    <div class="social-icon">
+                        <i class="fab fa-behance"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>Behance</h3>
+                        <p>Tu Portfolio</p>
+                        <span class="social-followers">500 seguidores</span>
+                    </div>
+                </a>
+                <a href="#" class="social-card linkedin">
+                    <div class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>LinkedIn</h3>
+                        <p>Tu Perfil</p>
+                        <span class="social-followers">1K conexiones</span>
+                    </div>
+                </a>
+                <a href="#" class="social-card email">
+                    <div class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="social-info">
+                        <h3>Email</h3>
+                        <p>tu@email.com</p>
+                        <span class="social-followers">Contacto directo</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
