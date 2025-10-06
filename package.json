@@ -1,0 +1,30 @@
+{
+  "name": "cabscrypto-telegram-bot",
+  "version": "1.0.0",
+  "description": "Bot de Telegram para onboarding de clientes CaBsCrypto",
+  "main": "telegram-bot.js",
+  "scripts": {
+    "start": "node telegram-bot.js",
+    "dev": "nodemon telegram-bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "crypto",
+    "onboarding",
+    "lead-generation"
+  ],
+  "author": "CaBsCrypto",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

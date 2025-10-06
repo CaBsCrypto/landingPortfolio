@@ -9,6 +9,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Crypto Prices Widget -->
+    <div class="crypto-prices-bar">
+        <div class="container">
+            <div class="prices-content">
+                <div class="crypto-item">
+                    <span class="crypto-symbol">₿</span>
+                    <span class="crypto-name">BTC</span>
+                    <span class="crypto-price" id="btc-price">$0</span>
+                    <span class="crypto-change" id="btc-change">+0%</span>
+                </div>
+                <div class="crypto-item">
+                    <span class="crypto-symbol">Ξ</span>
+                    <span class="crypto-name">ETH</span>
+                    <span class="crypto-price" id="eth-price">$0</span>
+                    <span class="crypto-change" id="eth-change">+0%</span>
+                </div>
+                <div class="crypto-item">
+                    <span class="crypto-symbol">◎</span>
+                    <span class="crypto-name">SOL</span>
+                    <span class="crypto-price" id="sol-price">$0</span>
+                    <span class="crypto-change" id="sol-change">+0%</span>
+                </div>
+                <div class="crypto-item">
+                    <span class="crypto-symbol">₮</span>
+                    <span class="crypto-name">TON</span>
+                    <span class="crypto-price" id="ton-price">$0</span>
+                    <span class="crypto-change" id="ton-change">+0%</span>
+                </div>
+                <div class="crypto-item">
+                    <span class="crypto-symbol">◈</span>
+                    <span class="crypto-name">MATIC</span>
+                    <span class="crypto-price" id="matic-price">$0</span>
+                    <span class="crypto-change" id="matic-change">+0%</span>
+                </div>
+                <div class="crypto-item">
+                    <span class="crypto-symbol">◉</span>
+                    <span class="crypto-name">AVAX</span>
+                    <span class="crypto-price" id="avax-price">$0</span>
+                    <span class="crypto-change" id="avax-change">+0%</span>
+                </div>
+            </div>
+            <div class="prices-controls">
+                <div class="price-status" id="price-status">
+                    <i class="fas fa-circle" id="status-indicator"></i>
+                    <span id="status-text">Loading...</span>
+                </div>
+                <button class="refresh-btn" onclick="refreshCryptoPrices()">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="expand-btn" onclick="toggleCryptoWidget()">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -16,11 +72,16 @@
                 <h2>CaBsCrypto</h2>
             </div>
             <div class="nav-menu">
-                <a href="#home" class="nav-link">Inicio</a>
-                <a href="#services" class="nav-link">Servicios</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#featured" class="nav-link">Destacados</a>
-                <a href="#contact" class="nav-link">Contacto</a>
+                <a href="#home" class="nav-link" data-key="nav.home">Inicio</a>
+                <a href="#services" class="nav-link" data-key="nav.services">Servicios</a>
+                <a href="#featured" class="nav-link" data-key="nav.featured">Destacados</a>
+                <a href="#contact" class="nav-link" data-key="nav.contact">Contacto</a>
+                <div class="language-switcher">
+                    <button class="lang-btn" onclick="toggleLanguage()">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang">ES</span>
+                    </button>
+                </div>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -36,23 +97,23 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        Hola, soy <span class="highlight">CaBsCrypto</span>
+                        <span data-key="hero.greeting">Hola, soy</span> <span class="highlight">CaBsCrypto</span>
                     </h1>
-                    <p class="hero-subtitle">
-                        Creador de Contenido Digital | Especialista en Marketing | Diseñador Visual
+                    <p class="hero-subtitle" data-key="hero.subtitle">
+                        Creador de Contenido Crypto | Especialista en Trading | Educador Blockchain
                     </p>
-                    <p class="hero-description">
-                        Transformo ideas en contenido visual impactante que conecta con tu audiencia. 
-                        Especializado en fotografía, videografía, diseño gráfico y estrategias de marketing digital.
+                    <p class="hero-description" data-key="hero.description">
+                        Transformo el mundo crypto en contenido educativo accesible. Especializado en análisis de mercado, 
+                        trading educativo y creación de comunidad alrededor de la tecnología blockchain.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">Ver Mi Trabajo</a>
-                        <a href="#contact" class="btn btn-secondary">Trabajemos Juntos</a>
+                        <a href="#featured" class="btn btn-primary" data-key="hero.work">Ver Mi Trabajo</a>
+                        <a href="#contact" class="btn btn-secondary" data-key="hero.collaborate">Trabajemos Juntos</a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="https://via.placeholder.com/400x500/6366f1/ffffff?text=Tu+Foto" alt="Tu Foto" class="profile-img">
+                        <img src="https://via.placeholder.com/400x500/6366f1/ffffff?text=CaBsCrypto" alt="CaBsCrypto Profile" class="profile-img">
                         <div class="floating-elements">
                             <div class="floating-icon">
                                 <i class="fas fa-camera"></i>
@@ -74,163 +135,87 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Mis Servicios</h2>
-                <p class="section-subtitle">Soluciones creativas para tu marca</p>
+                <h2 class="section-title" data-key="services.title">Mis Servicios</h2>
+                <p class="section-subtitle" data-key="services.subtitle">Servicios especializados en crypto y contenido educativo</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-camera"></i>
+                        <i class="fas fa-gamepad"></i>
                     </div>
-                    <h3>Fotografía</h3>
-                    <p>Fotografía profesional para productos, eventos, retratos y contenido para redes sociales.</p>
+                    <h3 data-key="service.gamenight.title">Game Night</h3>
+                    <p data-key="service.gamenight.desc">Sesiones de gaming en vivo con análisis de mercado crypto y entretenimiento educativo.</p>
                     <ul class="service-features">
-                        <li>Fotografía de producto</li>
-                        <li>Retratos profesionales</li>
-                        <li>Eventos corporativos</li>
-                        <li>Contenido para Instagram</li>
+                        <li data-key="service.gamenight.features.0">Streams de gaming</li>
+                        <li data-key="service.gamenight.features.1">Análisis de crypto en tiempo real</li>
+                        <li data-key="service.gamenight.features.2">Interacción con la comunidad</li>
+                        <li data-key="service.gamenight.features.3">Educación financiera</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3>Videografía</h3>
-                    <p>Producción de videos promocionales, comerciales y contenido para redes sociales.</p>
+                    <h3>Videos</h3>
+                    <p>Contenido educativo sobre crypto, trading y análisis de mercado para todas las plataformas.</p>
                     <ul class="service-features">
-                        <li>Videos promocionales</li>
-                        <li>Comerciales</li>
-                        <li>Reels para Instagram</li>
-                        <li>Edición profesional</li>
+                        <li>Análisis de mercado</li>
+                        <li>Tutoriales de trading</li>
+                        <li>Noticias crypto</li>
+                        <li>Contenido educativo</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
+                        <i class="fas fa-broadcast-tower"></i>
                     </div>
-                    <h3>Diseño Gráfico</h3>
-                    <p>Identidad visual, branding y diseño de materiales promocionales para tu marca.</p>
+                    <h3>Streams</h3>
+                    <p>Transmisiones en vivo con análisis técnico, trading en tiempo real y educación crypto.</p>
                     <ul class="service-features">
-                        <li>Identidad de marca</li>
-                        <li>Logos y branding</li>
-                        <li>Materiales promocionales</li>
-                        <li>Diseño web</li>
+                        <li>Trading en vivo</li>
+                        <li>Análisis técnico</li>
+                        <li>Q&A con la comunidad</li>
+                        <li>Educación interactiva</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Marketing Digital</h3>
-                    <p>Estrategias de marketing digital y gestión de redes sociales para hacer crecer tu marca.</p>
+                    <h3>Shorts</h3>
+                    <p>Contenido rápido y viral para TikTok, Instagram Reels y YouTube Shorts sobre crypto.</p>
                     <ul class="service-features">
-                        <li>Estrategia de contenido</li>
-                        <li>Gestión de redes sociales</li>
-                        <li>Marketing de influencers</li>
-                        <li>Análisis y métricas</li>
+                        <li>Tips rápidos de crypto</li>
+                        <li>Contenido viral</li>
+                        <li>Educación condensada</li>
+                        <li>Trending topics</li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Mi Portfolio</h2>
-                <p class="section-subtitle">Algunos de mis trabajos más destacados</p>
-            </div>
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="fotografia">Fotografía</button>
-                <button class="filter-btn" data-filter="video">Video</button>
-                <button class="filter-btn" data-filter="diseno">Diseño</button>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="fotografia">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Foto+1" alt="Proyecto 1">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Fotografía de Producto</h3>
-                                <p>Cliente: Marca XYZ</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
+                    <h3>Packs de Contenido Mensual</h3>
+                    <p>Paquetes completos de contenido educativo crypto para suscriptores premium.</p>
+                    <ul class="service-features">
+                        <li>Análisis mensuales</li>
+                        <li>Estrategias exclusivas</li>
+                        <li>Reportes detallados</li>
+                        <li>Acceso prioritario</li>
+                    </ul>
                 </div>
-                <div class="portfolio-item" data-category="video">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300/06b6d4/ffffff?text=Video+1" alt="Proyecto 2">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Video Promocional</h3>
-                                <p>Cliente: Empresa ABC</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                </div>
-                <div class="portfolio-item" data-category="diseno">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300/10b981/ffffff?text=Diseño+1" alt="Proyecto 3">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Identidad de Marca</h3>
-                                <p>Cliente: Startup DEF</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="fotografia">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300/f59e0b/ffffff?text=Foto+2" alt="Proyecto 4">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Retrato Corporativo</h3>
-                                <p>Cliente: CEO GHI</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="video">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300/ef4444/ffffff?text=Video+2" alt="Proyecto 5">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Reel Instagram</h3>
-                                <p>Cliente: Influencer JKL</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="diseno">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Diseño+2" alt="Proyecto 6">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Diseño Web</h3>
-                                <p>Cliente: Agencia MNO</p>
-                                <a href="#" class="portfolio-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>Eventos IRL</h3>
+                    <p>Eventos presenciales, conferencias y meetups sobre crypto y tecnología blockchain.</p>
+                    <ul class="service-features">
+                        <li>Conferencias crypto</li>
+                        <li>Meetups de comunidad</li>
+                        <li>Workshops educativos</li>
+                        <li>Networking profesional</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -564,6 +549,48 @@
         </div>
     </footer>
 
+    <!-- Telegram Chat Widget -->
+    <div id="telegram-widget" class="telegram-widget">
+        <div class="chat-toggle" onclick="toggleTelegramChat()">
+            <i class="fab fa-telegram"></i>
+            <span class="chat-badge" id="chat-badge">1</span>
+        </div>
+        <div class="chat-container" id="chat-container">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div class="chat-info">
+                    <h4>CaBsCrypto Bot</h4>
+                    <p>Asistente de colaboración</p>
+                </div>
+                <button class="chat-close" onclick="toggleTelegramChat()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>🚀 ¡Hola! Soy el asistente de CaBsCrypto</p>
+                        <p>¿Te interesa colaborar en un proyecto crypto?</p>
+                    </div>
+                    <div class="message-time">Ahora</div>
+                </div>
+            </div>
+            <div class="chat-actions">
+                <button class="action-btn" onclick="startOnboarding()">
+                    <i class="fas fa-rocket"></i>
+                    Comenzar Onboarding
+                </button>
+                <button class="action-btn" onclick="openTelegram()">
+                    <i class="fab fa-telegram"></i>
+                    Abrir Telegram
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>

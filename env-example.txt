@@ -1,0 +1,28 @@
+# Configuración del Bot de Telegram CaBsCrypto
+
+# Token del Bot de Telegram
+# Obtén este token de @BotFather en Telegram
+TELEGRAM_BOT_TOKEN=YOUR_BOT_TOKEN_HERE
+
+# Chat ID de CaBsCrypto para recibir notificaciones
+# Para obtener tu chat ID, envía un mensaje a @userinfobot
+CABSCRYPTO_CHAT_ID=YOUR_CHAT_ID_HERE
+
+# Configuración del servidor
+PORT=3000
+NODE_ENV=development
+
+# Base de datos (opcional)
+# DATABASE_URL=mongodb://localhost:27017/cabscrypto-bot
+
+# APIs externas (opcional)
+# GOOGLE_ANALYTICS_ID=GA_MEASUREMENT_ID
+# MAILGUN_API_KEY=your_mailgun_api_key
+
+# Configuración de notificaciones
+NOTIFICATION_ENABLED=true
+NOTIFICATION_INTERVAL=300000
+
+# Configuración de logs
+LOG_LEVEL=info
+LOG_FILE=bot.log
