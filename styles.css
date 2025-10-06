@@ -30,8 +30,13 @@ body {
     border-bottom: 1px solid #2d3748;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     font-size: 14px;
+    width: 100%;
+    display: block;
+    min-height: 40px;
+    border: 2px solid red !important;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5) !important;
 }
 
 .prices-content {
@@ -55,6 +60,8 @@ body {
     padding: 4px 8px;
     border-radius: 6px;
     transition: background 0.3s ease;
+    border: 1px solid yellow !important;
+    background: rgba(255, 255, 0, 0.1) !important;
 }
 
 .crypto-item:hover {

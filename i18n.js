@@ -387,9 +387,14 @@ function setFallbackPrices() {
 function updateCryptoDisplay() {
     const cryptos = ['btc', 'eth', 'sol', 'ton', 'matic', 'avax'];
     
+    console.log('=== UPDATING CRYPTO DISPLAY ===');
+    
     cryptos.forEach(crypto => {
         const priceElement = document.getElementById(`${crypto}-price`);
         const changeElement = document.getElementById(`${crypto}-change`);
+        
+        console.log(`Looking for ${crypto}-price:`, priceElement);
+        console.log(`Looking for ${crypto}-change:`, changeElement);
         
         if (priceElement && changeElement) {
             const price = cryptoPrices[crypto].price;
@@ -423,10 +428,17 @@ function updateCryptoDisplay() {
             setTimeout(() => {
                 priceElement.style.opacity = '1';
             }, 300);
+            
+            // Add debugging styles
+            priceElement.style.border = '2px solid lime';
+            changeElement.style.border = '2px solid cyan';
+            
         } else {
             console.warn(`Elements not found for ${crypto}`);
         }
     });
+    
+    console.log('=== CRYPTO DISPLAY UPDATE COMPLETE ===');
 }
 
 // Refresh crypto prices
@@ -460,12 +472,26 @@ function testCryptoElements() {
     console.log('Testing crypto elements...');
     const cryptos = ['btc', 'eth', 'sol', 'ton', 'matic', 'avax'];
     
+    // Check if the main widget exists
+    const widgetElement = document.querySelector('.crypto-prices-bar');
+    console.log('Widget element:', widgetElement);
+    
+    if (widgetElement) {
+        console.log('Widget is visible:', widgetElement.offsetHeight > 0);
+        console.log('Widget display style:', window.getComputedStyle(widgetElement).display);
+        console.log('Widget visibility:', window.getComputedStyle(widgetElement).visibility);
+    }
+    
     cryptos.forEach(crypto => {
         const priceElement = document.getElementById(`${crypto}-price`);
         const changeElement = document.getElementById(`${crypto}-change`);
         
         console.log(`${crypto}-price:`, priceElement ? 'Found' : 'NOT FOUND');
         console.log(`${crypto}-change:`, changeElement ? 'Found' : 'NOT FOUND');
+        
+        if (priceElement) {
+            console.log(`${crypto}-price visible:`, priceElement.offsetHeight > 0);
+        }
     });
 }
 
@@ -475,6 +501,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Test elements first
     testCryptoElements();
+    
+    // Force widget visibility
+    setTimeout(() => {
+        forceWidgetVisibility();
+    }, 500);
     
     // Initialize language system
     detectLanguage();
@@ -512,7 +543,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Force widget visibility for debugging
+function forceWidgetVisibility() {
+    const widget = document.querySelector('.crypto-prices-bar');
+    if (widget) {
+        widget.style.display = 'block !important';
+        widget.style.visibility = 'visible !important';
+        widget.style.opacity = '1 !important';
+        widget.style.height = 'auto !important';
+        widget.style.minHeight = '50px !important';
+        widget.style.position = 'relative !important';
+        widget.style.zIndex = '9999 !important';
+        console.log('Widget visibility forced');
+    } else {
+        console.log('Widget not found');
+    }
+}
+
 // Export functions for global use
 window.toggleLanguage = toggleLanguage;
 window.refreshCryptoPrices = refreshCryptoPrices;
 window.toggleCryptoWidget = toggleCryptoWidget;
+window.testCryptoElements = testCryptoElements;
+window.forceWidgetVisibility = forceWidgetVisibility;
